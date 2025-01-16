@@ -6,8 +6,8 @@ const Header = () => {
     <header class="flex items-center justify-between px-6 py-4 bg-white shadow border-b-2 h-[80px]">
 
     <div class="flex items-center pl-[20px]">
-      <span class="text-[#87CEEB] font-bold text-2xl">G</span>
-      <span class="text-gray-700 font-medium text-xl ml-2">Gramedia.com</span>
+    <img src="/public/lamp.png" alt="Lamp Icon" width="24" height="24" />
+      <span class="text-gray-700 font-medium text-xl ml-2">Light's on</span>
     </div>
 
     <div class="flex items-center w-1/2 ">
