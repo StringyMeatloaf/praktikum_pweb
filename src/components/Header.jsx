@@ -3,19 +3,31 @@ import { Link } from "react-router-dom";
 
 const Header = () => {
   return (
-    <header className="bg-blue-500 text-white p-4 shadow-md">
-      <div className="container mx-auto flex justify-between items-center">
-        <h1 className="text-xl font-bold">CeritaKu</h1>
-        <nav>
-          <Link to="/" className="mx-2 hover:underline">
-            Home
-          </Link>
-          <Link to="/admin" className="mx-2 hover:underline">
-            Admin
-          </Link>
-        </nav>
-      </div>
-    </header>
+    <header class="flex items-center justify-between px-6 py-4 bg-white shadow border-b-2 h-[80px]">
+
+    <div class="flex items-center pl-[20px]">
+      <span class="text-[#87CEEB] font-bold text-2xl">G</span>
+      <span class="text-gray-700 font-medium text-xl ml-2">Gramedia.com</span>
+    </div>
+
+    <div class="flex items-center w-1/2 ">
+      <input 
+        type="text" 
+        placeholder="Cari Buku" 
+        class="w-full px-4 py-2 border-t border-b border-l border-gray-300 rounded-l-lg focus:outline-none focus:ring-2 focus:ring-blue-500 text-sm text-gray-700"
+      />
+      <button class="px-4 py-2 border border-gray-300 rounded-r-lg bg-white">
+        <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor" class="w-5 h-5 text-gray-500">
+          <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 15l5.5 5.5M10 10a6 6 0 1112 0 6 6 0 01-12 0z" />
+        </svg>
+      </button>
+    </div>
+
+    <div class="flex items-center space-x-4 pr-[20px]">
+      <button class="text-gray-700 font-medium">Masuk</button>
+      <button class="px-4 py-2 bg-[#87CEEB] text-white font-medium rounded-lg">Daftar</button>
+    </div>
+  </header>
   );
 };
 
