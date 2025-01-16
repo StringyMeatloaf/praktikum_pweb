@@ -16,6 +16,7 @@ function App() {
                 <Route path="/admin" element={<AdminPage />} />
                 <Route path="/story/:id" element={<StoryDetailPage />} />
             </Routes>
+            <Footer />
         </Router>
     );
 }
