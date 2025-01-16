@@ -4,6 +4,7 @@ import HomePage from "./pages/HomePage";
 import AdminPage from "./pages/AdminPage";
 import StoryDetailPage from "./pages/StoryDetailPage";
 import Header from "./components/Header";
+import Footer from "./components/Footer";
 
 
 function App() {
