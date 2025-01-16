@@ -31,12 +31,7 @@ const HomePage = () => {
   };
 
   return (
-    <div className="p-8 bg-gray-100 min-h-screen">
-      {/* Jumbotron */}
-      <div className="mb-8 bg-blue-500 text-white p-8 rounded-lg shadow-md">
-        <h1 className="text-5xl font-bold">Selamat Datang di Dunia Cerita</h1>
-        <p className="text-lg mt-4">Temukan berbagai kisah menarik dari para penulis hebat.</p>
-      </div>
+    <div className="p-8 bg-white-100 min-h-screen">
 
       {/* Cerita Trending */}
       <div className="mb-12">
