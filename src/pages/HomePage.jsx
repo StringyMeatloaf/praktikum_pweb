@@ -31,24 +31,38 @@ const HomePage = () => {
   };
 
   return (
-    <div className="p-8 bg-white-100 min-h-screen">
+    <div className=" bg-white-100 min-h-screen ">
 
       {/* Cerita Trending */}
       <div className="mb-12">
-        <h2 className="text-3xl font-bold mb-4">Cerita Trending</h2>
-        <Slider {...sliderSettings}>
-          {trendingStories.map((story) => (
-            <div key={story.id} className="p-4">
-              <div className="bg-white rounded-lg shadow-lg p-6">
-                <h3 className="text-xl font-bold">{story.title}</h3>
-                <p className="text-gray-700 mt-2">{story.excerpt}</p>
-                <p className="text-gray-500 text-sm mt-2">Written by {story.author}</p>
-                <Link to={`/story/${story.id}`} className="text-blue-500 mt-2 inline-block">Read More</Link>
-              </div>
-            </div>
-          ))}
-        </Slider>
+  <Slider {...sliderSettings}>
+    {trendingStories.map((story) => (
+      <div key={story.id} className="relative">
+        {/* Background */}
+        <div className="bg-[url('public/blur.jpg')] bg-cover bg-center w-full h-[683px] relative">
+          {/* Overlay Tulisan */}
+          <div className="absolute inset-0 bg-black bg-opacity-30 flex flex-col justify-center items-center text-center text-white">
+            <h2 className="text-3xl font-bold mb-[10px] pt-[20px]">{story.title}</h2>
+            <p className="text-lg">{story.author}</p>
+            <p className="text-lg mt-[480px]">{story.excerpt}</p>
+          </div>
+
+          {/* Gambar Utama */}
+          <div className="absolute inset-0 flex justify-center items-center">
+            <img
+              src="public/gh.jpg"
+              alt=""
+              className="w-[300px] h-[400px] object-cover rounded-lg shadow-lg"
+            />
+          </div>
+        </div>
       </div>
+    ))}
+  </Slider>
+</div>
+
+
+
 
       {/* Daftar Semua Cerita */}
       <h2 className="text-3xl font-bold mb-6">Cerita Terkini</h2>
