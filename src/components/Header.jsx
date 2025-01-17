@@ -23,9 +23,9 @@ const Header = () => {
       </button>
     </div>
 
-    <div class="flex items-center space-x-4 pr-[20px]">
-      <button class="text-gray-700 font-medium">Masuk</button>
-      <button class="px-4 py-2 bg-[#87CEEB] text-white font-medium rounded-lg">Daftar</button>
+    <div class="flex items-center space-x-2 pr-[20px]">
+      <p className="text-gray-700 font-medium text-xl">Read on with</p>
+      <p class="text-yellow-500 font-bold text-xl"> Light's on</p>
     </div>
   </header>
   );

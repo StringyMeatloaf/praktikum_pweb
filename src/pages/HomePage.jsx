@@ -28,19 +28,7 @@ const HomePage = () => {
       }, []);
 
   // Data cerita trending dan cerita lainnya
-  const trendingStories = [
-    { id: 1, title: "Rahasia Malam di Kota ", author: "Tukimin Setiawan", excerpt: "Di bawah gemerlap lampu jalanan, sebuah kisah persahabatan dan petualangan dimulai...", bgimage: "url('public/blur1.png')", image: "public/gh1.jpg" },
-    { id: 2, title: "Rindu di Balik Senja", author: "Ratri Anggraini", excerpt: "Hati yang terluka menemukan kenyamanan di setiap senja yang terlukis di cakrawala...", bgimage: "url('public/blur2.png')", image: "public/gh2.jpg" },
-    { id: 3, title: "Misteri Lorong Gelap", author: "Dimas Suprapto", excerpt: "Dalam lorong gelap, ia menemukan lebih dari sekadar bayangan; sebuah kebenaran yang mengguncang hidupnya...", bgimage: "url('public/blur3.jpg')", image: "public/gh3.jpg"},
-  ];
 
-  const stories = [
-    { id: 4, title: "Jejak Langkah di Gurun Pasir", author: "Siti Zahra", excerpt: "Sebuah perjalanan panjang melintasi gurun pasir untuk menemukan harapan yang hilang...",bgimage: "url('public/blur4.jpg')", image: "public/gh4.jpg" },
-    { id: 5, title: "Di Balik Lensa Kamera", author: "Andi Saputra", excerpt: "Fotografi membawa Andi ke dunia penuh warna, cinta, dan misteri...",bgimage: "url('public/blur5.jpg')", image: "public/gh5.jpg" },
-    { id: 6, title: "Hujan di Tengah Keramaian", author: "Rina Kartika", excerpt: "Di tengah keramaian, hujan membawa memori lama yang tak terlupakan...",bgimage: "url('public/blur6.jpg')", image: "public/gh6.jpg" },
-  ];
-
-  const combinedStories = [...trendingStories, ...stories];
 
   // Slider settings
   const sliderSettings = {
@@ -82,25 +70,21 @@ const HomePage = () => {
       {/* Cerita Trending */}
       <div className="mb-12">
         <Slider {...sliderSettings}>
-          {trendingStories.map((story) => (
-            <div key={story.id} className="relative">
-              {/* Background */}
+            {stori.map((stori, index) => (
+            <div key={index} className="relative">
               <div
                 className="bg-cover bg-center w-full h-[683px] relative"
-                style={{ backgroundImage: story.bgimage }}
+                style={{ backgroundImage: `url(http://127.0.0.1:8000/storage/${stori.background_image})` }}
               >
-                {/* Overlay Tulisan */}
                 <div className="absolute inset-0 bg-black bg-opacity-30 flex flex-col justify-center items-center text-center text-white">
-                  <h2 className="text-3xl font-bold mb-[10px] pt-[20px]">{story.title}</h2>
-                  <p className="text-lg">{story.author}</p>
-                  <p className="text-lg mt-[480px] mb-[50px]">{story.excerpt}</p>
+                  <h2 className="text-3xl font-bold mb-[10px] pt-[20px]">{stori.title}</h2>
+                  <p className="text-lg">{stori.author}</p>
+                  <p className="text-lg mt-[480px] mb-[50px]">{stori.description}</p>
                 </div>
-
-                {/* Gambar Utama */}
                 <div className="absolute inset-0 flex justify-center items-center">
                   <img
-                    src={story.image}
-                    alt={story.title}
+                    src={`http://127.0.0.1:8000/storage/${stori.image}`}
+                    alt={stori.title}
                     className="w-[300px] h-[400px] object-cover rounded-lg shadow-lg"
                   />
                 </div>
@@ -121,33 +105,27 @@ const HomePage = () => {
             onMouseUp={handleDragEnd}
             onMouseMove={handleDragMove}
           >
-            {combinedStories.map((story) => (
+            {stori.map((stori, index) => (
               <div
-                key={story.id}
+                key={index}
                 className="bg-white shadow-md border-md border-b border-t rounded-lg p-4 w-64 h-[420px] flex-shrink-0 relative"
               >
                 <img
-                  src={story.image || "https://via.placeholder.com/150"} // Placeholder default
-                  alt={story.title}
+                  src={`http://127.0.0.1:8000/storage/${stori.image}`} // Placeholder default
+                  alt={stori.title}
                   className="rounded-md mb-4 h-[283px] w-full object-cover"
                 />
-                <h4 className="font-semibold text-gray-800">{story.title}</h4>
-                <p className="text-gray-500">{story.author}</p>
+                <h4 className="font-semibold text-gray-800">{stori.title}</h4>
+                <p className="text-gray-500">{stori.author}</p>
 
                 {/* Baca Selengkapnya link */}
                 <div className="absolute bottom-4 right-4">
-                  <Link
-                    to={`/story/${story.id}`}  // Update this URL as per your routing
-                    className="text-blue-500 text-sm font-semibold hover:underline"
-                  >
-                    Baca Selengkapnya
-                  </Link>
                 </div>
               </div>
             ))}
           </div>
         </div>
-      </div>
+        </div>
     </div>
   );
 };
