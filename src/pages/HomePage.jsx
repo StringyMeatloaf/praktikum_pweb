@@ -1,10 +1,32 @@
-import React, { useRef } from "react";
+import React, { useEffect, useRef, useState } from "react";
 import { Link } from "react-router-dom";
 import Slider from "react-slick";
 import "slick-carousel/slick/slick.css";
 import "slick-carousel/slick/slick-theme.css";
 
 const HomePage = () => {
+  const [stori, setStoris] = useState([]);
+        const [loading, setLoading] = useState(true);
+
+        const fetchStoris = async () => {
+                setLoading(true);
+                try {
+                        const response = await fetch('http://127.0.0.1:8000/api/stori');
+                        const result = await response.json();
+                        if (result.success) {
+                                setStoris(result.data);
+                        }
+                } catch (error) {
+                        console.error('Error fetching data:', error);
+                } finally {
+                        setLoading(false);
+                }
+        };
+
+        useEffect(() => {
+                fetchStoris();
+      }, []);
+
   // Data cerita trending dan cerita lainnya
   const trendingStories = [
     { id: 1, title: "Rahasia Malam di Kota ", author: "Tukimin Setiawan", excerpt: "Di bawah gemerlap lampu jalanan, sebuah kisah persahabatan dan petualangan dimulai...", bgimage: "url('public/blur1.png')", image: "public/gh1.jpg" },
